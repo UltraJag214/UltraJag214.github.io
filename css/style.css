@@ -73,6 +73,8 @@ p {
     width: auto;
 }
 
+/* block1 styles */
+
 .block1 {
     padding: 50px;
 }
@@ -99,11 +101,88 @@ p {
     text-align: center;
 }
 
+/* block2 styles */
+
 .block2 {
     padding: 50px;
-    background-color: #eef0f4;
+    background-color: #dadfea;
 }
 
 .block2 > .text2 {
     margin: 10px 0;
+}
+
+.block2 > .images2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block2 > .images2 img {
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+    width: 20vw;
+}
+
+.block2 > .images2 > .peppers > .image-text {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 5vh;
+    width: 20vw;
+}
+
+.block2 > .images2 > .muffins > .image-text {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 5vh;
+    width: 20vw;
+}
+
+.block2 > .images2 > .eggplant > .image-text {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 5vh;
+    width: 20vw;
+}
+
+.block2 > .images2 > .chicken > .image-text {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 5vh;
+    width: 20vw;
+}
+
+/* block3 styles */
+
+.block3 {
+    padding: 50px;
+}
+
+.block3 p {
+    margin: 20px 0;
+}
+
+.block3 > .images3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block3 > .images3 img {
+    display: flex;
+    height: 27vh;
+    width: 27vw;
+    border: 5px solid #dadfea;
+}
+
+.block3 > .images3 p {
+    text-align: center;
+    margin-top: 10px;
 }
