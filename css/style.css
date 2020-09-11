@@ -19,7 +19,6 @@ p {
     width: 100%;
     align-items: center;
     justify-content: space-around;
-    border-bottom: 2px solid white;
 }
 
 .header > .right-header {
@@ -56,6 +55,7 @@ p {
 .body-image {
     display: flex;
     justify-content: center;
+    border-top: 2px solid white;
 }
 
 .body-image img {
