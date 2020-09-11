@@ -1,0 +1,109 @@
+/* common styles */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+p {
+    margin: 10px;
+}
+
+/* header styles */
+
+.header {
+    background-color: #f1a536;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid white;
+}
+
+.header > .right-header {
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+.header > .right-header > .logo img {
+    height: 75px;
+    
+}
+
+.header > .left-header {
+    margin-right: 50px;
+}
+
+.header > .left-header > .nav-links { 
+    display: flex;
+}
+
+.header > .left-header > .nav-links > .navlink {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25px;
+}
+
+.header > .left-header > .nav-links > .navlink a {
+    text-decoration: none;
+    color: black;
+}
+
+/* image styles under header */
+
+.body-image {
+    display: flex;
+    justify-content: center;
+}
+
+.body-image img {
+    width: 100%;
+    background: no-repeat;
+    object-fit: cover;
+    height: 65vh;
+}
+
+.body-image > .text-image {
+    position: absolute;
+    bottom: 33vh;
+    padding: 5px;
+    background-color: white;
+    width: auto;
+}
+
+.block1 {
+    padding: 50px;
+}
+
+.block1 > .title1 h2 {
+    font-weight: 900;
+}
+
+.block1 > .text1 {
+    margin: 10px 0;
+}
+
+.block1 > .images1 img {
+    height:200px;
+    width: 27vw;
+}
+
+.block1 > .images1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block1 p {
+    text-align: center;
+}
+
+.block2 {
+    padding: 50px;
+    background-color: #eef0f4;
+}
+
+.block2 > .text2 {
+    margin: 10px 0;
+}
