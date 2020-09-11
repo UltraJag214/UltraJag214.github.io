@@ -186,3 +186,30 @@ p {
     text-align: center;
     margin-top: 10px;
 }
+
+/* Footer Styles */
+
+.footer {
+    background-color: #f1a536;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 11vh;
+}
+
+.footer > .left-footer > .copyright p {
+    font-size: 15px;
+}
+
+.footer > .right-footer > .footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 23vw;
+}
+
+.footer > .right-footer > .footer-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 11px;
+}
