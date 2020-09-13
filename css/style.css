@@ -202,10 +202,14 @@ p {
     font-size: 15px;
 }
 
+.footer > .right-footer {
+    width: 50%;
+}
+
 .footer > .right-footer > .footer-links {
     display: flex;
     justify-content: space-between;
-    width: 23vw;
+    width: auto;
 }
 
 .footer > .right-footer > .footer-links a {
