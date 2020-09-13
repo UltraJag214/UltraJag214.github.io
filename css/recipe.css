@@ -47,3 +47,50 @@
 .instructions > .time-columns > .column3 > .text5 {
     margin: 7px 0;
 }
+
+/* Bengal Burger Review Styles */
+
+.checked {
+    color: #a63223;
+}
+
+.review {
+    padding: 70px;
+    padding-bottom: 30px;
+}
+
+.review > .bengal-burger-text {
+    display: flex;
+    justify-content: center;;
+}
+
+.review > .review-stars {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.review > .review-stars p {
+    margin: 0 10px;
+}
+
+.review > .save-recipe-button {
+    display: flex;
+    justify-content: center;
+}
+
+.save-recipe {
+    background-color: #a63223;
+    border: none;
+    color: white;
+    border-radius: 16px;
+    border-color: #a63223;
+    padding: 6px;
+    width: 13vw;
+    outline: none;
+}
+
+.review > .save-recipe-button i {
+    margin: 0 10px;
+    padding: 6px;
+}
