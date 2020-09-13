@@ -1,0 +1,49 @@
+.bold {
+    font-weight: bold;
+}
+
+/* Hamburger image styles */
+
+.hamburger-image {
+    display: flex;
+    justify-content: center;
+}
+
+.hamburger-image img {
+    width: 100%;
+    background: no-repeat;
+    object-fit: cover;
+    height: 65vh;
+}
+
+.hamburger-image > .burger-text {
+    position: absolute;
+    bottom: 33vh;
+    padding: 5px;
+    background-color: white;
+    width: auto;
+}
+
+/* Hamburger recipe styles */
+
+.instructions {
+    background-color: #dadfea;
+    padding: 20px 70px;
+}
+
+.instructions > .time-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.instructions > .time-columns > .column1 > .text1 {
+    margin: 7px 0;
+}
+
+.instructions > .time-columns > .column2 > .text3 {
+    margin: 7px 0;
+}
+
+.instructions > .time-columns > .column3 > .text5 {
+    margin: 7px 0;
+}
