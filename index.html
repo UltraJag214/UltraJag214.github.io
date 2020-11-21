@@ -1,139 +1,309 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>RY-Paris</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="recipe.html">
-    </head>
-    <body>
-        <div class="header">
-            <div class="right-header">
-                <div class="logo">
-                    <img src="images/ryparis-logo.png" alt="RY-Paris Logo">
-                </div>
-            </div>
-            <div class="left-header">
-                <div class="nav-links">
-                    <div class="navlink">
-                        <a href="recipe.html">Popular Recipes</a>
-                    </div>
-                    <div class="navlink">
-                        <a href="#">What's New</a>
-                    </div>
-                    <div class="navlink">
-                        <a href="#">Categories</a>
-                    </div>
-                    <div class="navlink">
-                        <a href="#">Meal Ideas</a>
-                    </div>
-                </div>
-            </div>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf-Scorecard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="red-banner hide" id="banner">
+        This is an error!
+    </div>
+    <!-- <div class="green-banner" id="green-banner">
+        Success!
+    </div> -->
+    <br>
+    <!-- choices for the user to make -->
+    <div class="bodyWrap">
+        <div id="selectionElements">
+            <h2 class="ml-3" id="GolfHeader">Lets play Golf!</h2>
+            <label for="courses" class="ml-3">Choose a course to play on:</label>
+            <select name="courses" id="chooseCourse" class="form-control ml-3 col-4 thingsToLock">
+                <!-- <option value="Fox Hollow">Fox Hollow</option>
+                <option value="Thanksgiving Point">Thanksgiving Point</option>
+                <option value="Spanish Oaks">Spanish Oaks</option> -->
+            </select>
+            <br>
+            <label class="ml-3">How many players?</label>
+            <select name="playerCount" id="playerCount" class="form-control ml-3 col-2 thingsToLock">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br>
+            <label class="ml-3">Choose which difficulty</label>
+            <select name="difficulty" id="difficulty" class="form-control ml-3 col-4 thingsToLock">
+                <!-- <option value="men">Mens</option>
+                <option value="women">Womens</option>
+                <option value="amatuer">Amatuer</option>
+                <option value="pro">Pro</option> -->
+            </select>
         </div>
-        <div class="body-image">
-            <img src="images/hero-image.jpg">
-            <div class="text-image">
-                <h1>START THE WEEK OFF RIGHT</h1>
-            </div>
+        <br>
+        <div class="wrap">
+            <input type="text" id="newUser" placeholder="Player Name" class="form-control ml-3 col-4 thingsToLock">
+            <button id="newUserBtn" class="btn ml-3 btn-success">Add User</button>
+            <button id="startGame" class="btn ml-3 btn-success">Start Game</button>
         </div>
-        <div class="block1">
-            <div class="title1">
-                <h2>Everyday Categories</h2>
-            </div>
-            <div class="text1">
-                Everyday Food has developed recipes with the home cook in mind. These delicious dishes featured on "RY Paris" call for simple ingredients that you already have in your pantry or can easily find at local grocery stores and farmers' markets.
-            </div>
-            <div class="images1">
-                <div class="left-image">
-                    <img src="images/breakfast-ideas.jpg" alt="Breakfast Ideas">
-                    <p>Breakfast Most Important Meal</p>
+        <h3 id="courseName"></h3>
+        <div id="golf-card">
+            <!-- holes 1-9 scorecard -->
+            <div id="holes1-9">
+                <div class="row ml-3">
+                    <div class="col-1 text-center">HOLE</div>
+                    <div class="col-1 text-center">1</div>
+                    <div class="col-1 text-center">2</div>
+                    <div class="col-1 text-center">3</div>
+                    <div class="col-1 text-center">4</div>
+                    <div class="col-1 text-center">5</div>
+                    <div class="col-1 text-center">6</div>
+                    <div class="col-1 text-center">7</div>
+                    <div class="col-1 text-center">8</div>
+                    <div class="col-1 text-center">9</div>
+                    <div class="col-1 text-center">OUT</div>
                 </div>
-                <div class="center-image">
-                    <img src="images/vegetarian-ideas.jpg" alt="Vegetarian Ideas">
-                    <p>Vegetarian Lunch Ideas</p>
+                <div class="row ml-3">
+                    <div class="col-1 text-center">YARDS</div>
+                    <div class="col-1 text-center" id="yards0"></div>
+                    <div class="col-1 text-center" id="yards1"></div>
+                    <div class="col-1 text-center" id="yards2"></div>
+                    <div class="col-1 text-center" id="yards3"></div>
+                    <div class="col-1 text-center" id="yards4"></div>
+                    <div class="col-1 text-center" id="yards5"></div>
+                    <div class="col-1 text-center" id="yards6"></div>
+                    <div class="col-1 text-center" id="yards7"></div>
+                    <div class="col-1 text-center" id="yards8"></div>
+                    <div class="col-1 text-center"></div>
                 </div>
-                <div class="right-image">
-                    <img src="images/cold-weather-dinners.jpeg" alt="Cold Weather Weeknight Ideas">
-                    <p>Cold-Weather Weeknight Dinners</p>
+                <div class="row ml-3">
+                    <div class="col-1 text-center"> HDCP</div>
+                    <div class="col-1 text-center" id="hcp0"></div>
+                    <div class="col-1 text-center" id="hcp1"></div>
+                    <div class="col-1 text-center" id="hcp2"></div>
+                    <div class="col-1 text-center" id="hcp3"></div>
+                    <div class="col-1 text-center" id="hcp4"></div>
+                    <div class="col-1 text-center" id="hcp5"></div>
+                    <div class="col-1 text-center" id="hcp6"></div>
+                    <div class="col-1 text-center" id="hcp7"></div>
+                    <div class="col-1 text-center" id="hcp8"></div>
+                    <div class="col-1 text-center"></div>
+                </div>
+                <div class="row ml-3">
+                    <div class="col-1 text-center">PAR</div>
+                    <div class="col-1 text-center parItems" id="par0"></div>
+                    <div class="col-1 text-center parItems" id="par1"></div>
+                    <div class="col-1 text-center parItems" id="par2"></div>
+                    <div class="col-1 text-center parItems" id="par3"></div>
+                    <div class="col-1 text-center parItems" id="par4"></div>
+                    <div class="col-1 text-center parItems" id="par5"></div>
+                    <div class="col-1 text-center parItems" id="par6"></div>
+                    <div class="col-1 text-center parItems" id="par7"></div>
+                    <div class="col-1 text-center parItems" id="par8"></div>
+                    <div class="col-1 text-center"></div>
+                </div>
+                <div id="player0-0" class="row hide ml-3">
+                    <div id="playerName0-0" class="col-1 text-center"></div>
+                    <input id="player0Score0" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score1" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score2" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score3" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score4" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score5" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score6" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score7" type="number" class="col-1 text-center player0-0">
+                    <input id="player0Score8" type="number" class="col-1 text-center player0-0">
+                    <div id="player0Total0" class="col-1 text-center"></div>
+                </div>
+                <div id="player1-0" class="row hide ml-3">
+                    <div id="playerName1-0" class="col-1 text-center"></div>
+                    <input id="player1Score0" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score1" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score2" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score3" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score4" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score5" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score6" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score7" type="number" class="col-1 text-center player1-0">
+                    <input id="player1Score8" type="number" class="col-1 text-center player1-0">
+                    <div id="player1Total0" class="col-1 text-center"></div>
+                </div>
+                <div id="player2-0" class="row hide ml-3">
+                    <div id="playerName2-0" class="col-1 text-center"></div>
+                    <input id="player2Score0" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score1" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score2" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score3" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score4" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score5" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score6" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score7" type="number" class="col-1 text-center player2-0">
+                    <input id="player2Score8" type="number" class="col-1 text-center player2-0">
+                    <div id="player2Total0" class="col-1 text-center"></div>
+                </div>
+                <div id="player3-0" class="row hide ml-3">
+                    <div id="playerName3-0" class="col-1 text-center"></div>
+                    <input id="player3Score0" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score1" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score2" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score3" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score4" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score5" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score6" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score7" type="number" class="col-1 text-center player3-0">
+                    <input id="player3Score8" type="number" class="col-1 text-center player3-0">
+                    <div id="player3Total0" class="col-1 text-center"></div>
                 </div>
             </div>
+            <div class="spacer10"></div>
+            <!-- holes 10-18 scorecard -->
+            <div id="holes10-18">
+                <div class="row ml-3">
+                    <div class="col-1 text-center">HOLE</div>
+                    <div class="col-1 text-center">10</div>
+                    <div class="col-1 text-center">11</div>
+                    <div class="col-1 text-center">12</div>
+                    <div class="col-1 text-center">13</div>
+                    <div class="col-1 text-center">14</div>
+                    <div class="col-1 text-center">15</div>
+                    <div class="col-1 text-center">16</div>
+                    <div class="col-1 text-center">17</div>
+                    <div class="col-1 text-center">18</div>
+                    <div class="col-1 text-center">IN</div>
+                </div>
+                <div class="row ml-3">
+                    <div class="col-1 text-center">YARDS</div>
+                    <div class="col-1 text-center" id="yards9"></div>
+                    <div class="col-1 text-center" id="yards10"></div>
+                    <div class="col-1 text-center" id="yards11"></div>
+                    <div class="col-1 text-center" id="yards12"></div>
+                    <div class="col-1 text-center" id="yards13"></div>
+                    <div class="col-1 text-center" id="yards14"></div>
+                    <div class="col-1 text-center" id="yards15"></div>
+                    <div class="col-1 text-center" id="yards16"></div>
+                    <div class="col-1 text-center" id="yards17"></div>
+                    <div class="col-1 text-center"></div>
+                </div>
+                <div class="row ml-3">
+                    <div class="col-1 text-center"> HDCP</div>
+                    <div class="col-1 text-center" id="hcp9"></div>
+                    <div class="col-1 text-center" id="hcp10"></div>
+                    <div class="col-1 text-center" id="hcp11"></div>
+                    <div class="col-1 text-center" id="hcp12"></div>
+                    <div class="col-1 text-center" id="hcp13"></div>
+                    <div class="col-1 text-center" id="hcp14"></div>
+                    <div class="col-1 text-center" id="hcp15"></div>
+                    <div class="col-1 text-center" id="hcp16"></div>
+                    <div class="col-1 text-center" id="hcp17"></div>
+                    <div class="col-1 text-center"></div>
+                </div>
+                <div class="row ml-3">
+                    <div class="col-1 text-center">PAR</div>
+                    <div class="col-1 text-center parItems" id="par9"></div>
+                    <div class="col-1 text-center parItems" id="par10"></div>
+                    <div class="col-1 text-center parItems" id="par11"></div>
+                    <div class="col-1 text-center parItems" id="par12"></div>
+                    <div class="col-1 text-center parItems" id="par13"></div>
+                    <div class="col-1 text-center parItems" id="par14"></div>
+                    <div class="col-1 text-center parItems" id="par15"></div>
+                    <div class="col-1 text-center parItems" id="par16"></div>
+                    <div class="col-1 text-center parItems" id="par17"></div>
+                    <div class="col-1 text-center"></div>
+                </div>
+                <div id="player0-1" class="row hide ml-3">
+                    <div id="playerName0-1" class="col-1 text-center"></div>
+                    <input id="player0Score9" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score10" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score11" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score12" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score13" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score14" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score15" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score16" type="number" class="col-1 text-center player0-1">
+                    <input id="player0Score17" type="number" class="col-1 text-center player0-1">
+                    <div id="player0Total1" class="col-1 text-center"></div>
+                </div>
+                <div id="player1-1" class="row hide ml-3">
+                    <div id="playerName1-1" class="col-1 text-center"></div>
+                    <input id="player1Score9" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score10" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score11" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score12" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score13" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score14" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score15" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score16" type="number" class="col-1 text-center player1-1">
+                    <input id="player1Score17" type="number" class="col-1 text-center player1-1">
+                    <div id="player1Total1" class="col-1 text-center"></div>
+                </div>
+                <div id="player2-1" class="row hide ml-3">
+                    <div id="playerName2-1" class="col-1 text-center"></div>
+                    <input id="player2Score9" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score10" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score11" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score12" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score13" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score14" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score15" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score16" type="number" class="col-1 text-center player2-1">
+                    <input id="player2Score17" type="number" class="col-1 text-center player2-1">
+                    <div id="player2Total1" class="col-1 text-center"></div>
+                </div>
+                <div id="player3-1" class="row hide ml-3">
+                    <div id="playerName3-1" class="col-1 text-center"></div>
+                    <input id="player3Score9" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score10" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score11" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score12" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score13" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score14" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score15" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score16" type="number" class="col-1 text-center player3-1">
+                    <input id="player3Score17" type="number" class="col-1 text-center player3-1">
+                    <div id="player3Total1" class="col-1 text-center"></div>
+                </div>
+            </div>
+            <br>
+
+            <div class="totals">
+                <div class="row ml-3">
+                    <div class="col-1 text-center"></div>
+                    <div class="col-1 text-center">Total</div>
+                    <div class="col-2 text-center">Outcome</div>
+                </div>
+                <div id="player0-2" class="row hide ml-3">
+                    <div id="playerName0-2" class="col-1 text-center"></div>
+                    <div id="player0Score" class="col-1 text-center"></div>
+                    <div id="player0Outcome" class="col-2 text-center"></div>
+                </div>
+                <div id="player1-2" class="row hide ml-3">
+                    <div id="playerName1-2" class="col-1 text-center"></div>
+                    <div id="player1Score" class="col-1 text-center"></div>
+                    <div id="player1Outcome" class="col-2 text-center"></div>
+                </div>
+                <div id="player2-2" class="row hide ml-3">
+                    <div id="playerName2-2" class="col-1 text-center"></div>
+                    <div id="player2Score" class="col-1 text-center"></div>
+                    <div id="player2Outcome" class="col-2 text-center"></div>
+                </div>
+                <div id="player3-2" class="row hide ml-3">
+                    <div id="playerName3-2" class="col-1 text-center"></div>
+                    <div id="player3Score" class="col-1 text-center"></div>
+                    <div id="player3Outcome" class="col-2 text-center"></div>
+                </div>
+            </div>
+            <br>
         </div>
-        <div class="block2">
-            <div class="title2">
-                <h2>Healthy Recipes of the Week</h2>
-            </div>
-            <div class="text2">
-                This weeks top award winners to critically-acclaimed recipe gems, check out these original recipes from home cook and professional chefs around the country.
-            </div>
-            <div class="images2">
-                <div class="peppers">
-                    <img src="images/fajita-peppers.jpeg" alt="Fajita Peppers">
-                    <div class="image-text">Fajita-Stuffed Peppers </div>
-                </div>
-                <div class="muffins">
-                    <img src="images/muffins.jpeg" alt="Muffins">
-                    <div class="image-text">Ree's Breakfast Muffins</div>
-                </div>
-                <div class="eggplant">
-                    <img src="images/eggplant-parmesan.jpg" alt="Eggplant Parmesan">
-                    <div class="image-text">Eggplant Parmesan</div>
-                </div>
-                <div class="chicken">
-                    <img src="images/teriyaki-chicken.jpeg" alt="Teriyaki Chicken">
-                    <div class="image-text">Teriyaki Chicken Thighs</div>
-                </div>
-            </div>
-        </div>
-        <div class="block3">
-            <div class="title3">
-                <h2>Where to Eat</h2>
-            </div>
-            <div class="text3-1">
-                <p>This is not the aspirational fluff of Instagram wall neon; it's fact. Recent surveys have shown that a majority of travelers consider food first when planning a trip, even ahead of where they sleep. Add to this that people are also traveling more than ever before -- earthlings logged a record-breaking 1.4 billion international trips last year -- and it's safe to say that the hunger for new culinary experiences is more ravenous than ever.</p>
-            </div>
-            <div class="text3-2">
-                <p>While the endlessly alluring bistros of Paris, izakayas of Tokyo, shawarma stands of Tel Aviv, and testing menus of Mexico City will always top many people's lists of cravings, we're continually on the lookout for something new to fill our bellies, our passports, and our feeds.</p>
-            </div>
-            <div class="images3">
-                <div>
-                    <img src="images/burger.jpg" alt="burger">
-                    <p>Best Sandwhiches in America</p>
-                </div>
-                <div>
-                    <img src="images/pizza.jpeg" alt="pizza">
-                    <p>50 States of Pizza Slices</p>
-                </div>
-                <div>
-                    <img src="images/hero-image.jpg" alt="City Guides">
-                    <p>City Guides</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="left-footer">
-                <div class="copyright">
-                    <p>&#169; 2020 RY PARIS</p>
-                </div>
-            </div>
-            <div class="right-footer">
-                <div class="footer-links">
-                    <div>
-                        <a class="site-map" href="#">Site Map</a>
-                    </div>
-                    <div>
-                        <a class="privacy-policy" href="#">Privacy Policy</a>
-                    </div>
-                    <div>
-                        <a class="about" href="#">About</a>
-                    </div>
-                    <div>
-                        <a class="advertise" href="#">Advertise</a>
-                    </div>
-                    <div>
-                        <a class="help" href="#">Help</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>
